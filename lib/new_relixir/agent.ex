@@ -2,7 +2,7 @@ defmodule NewRelixir.Agent do
   require Logger
 
   @base_url "http://~s/agent_listener/invoke_raw_method?"
-  @base_args [protocol_version: 10, marshal_format: :json]
+  @base_args [protocol_version: 14, marshal_format: :json]
 
   @doc """
   Connects to New Relic and sends the hopefully correctly
@@ -42,7 +42,7 @@ defmodule NewRelixir.Agent do
     url = url(collector, [method: :connect])
 
     data = [%{
-      :agent_version => "1.5.0.103",
+      :agent_version => "1.10.0",
       :app_name => [app_name()],
       :host => l2b(hostname),
       :identifier => app_name(),
